@@ -2,7 +2,6 @@ import React from "react"
 import memesData from "../memesData.js"
 
 export default function Meme() {
-    const [memeimage, setMemeImage] = React.useState("")
     /**
      * Challenge: Get a random image from the `memesData` array
      * when the "new meme image" button is clicked.
@@ -11,15 +10,25 @@ export default function Meme() {
      * about displaying the image yet)
      */
 
+    const [meme, setMeme] = React.useState({
+        topText: "",
+        bottomText: "",
+        randomImage: "http://i.imgflip.com/1bij.jpg" 
+    })
+    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
+    
+    
     function getMemeImage() {
-        const memesArray = memesData.data.memes
+        const memesArray = allMemeImages.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
-        setMemeImage(memesArray[randomNumber].url)
+        const url = memesArray[randomNumber].url
+        setMeme()
+        
     }
+    
     return (
         <main>
             <div className="form">
-                <p>{url}</p>
                 <input 
                     type="text"
                     placeholder="Top text"
@@ -37,7 +46,7 @@ export default function Meme() {
                     Get a new meme image 🖼
                 </button>
             </div>
-            <img src= {memeImage} classNmae="meme"/>
+            <img src={memeImage} className="meme--image" />
         </main>
     )
-    }
+}
