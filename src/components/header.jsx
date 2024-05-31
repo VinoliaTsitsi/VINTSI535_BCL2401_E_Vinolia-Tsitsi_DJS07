@@ -4,14 +4,17 @@ import React from "react"
 /**
  * Challenge: Build the Header component
  */
- function Header() {
+ export default function Header() {
     return (
-        <header calssName = "header">
-            img src = ".image"
-        <h1>Header Component</h1>
-        <h4>React Course Projecst 3</h4>
+    <header calssName="header">
+        <img 
+        src =".images/troll-face.png"
+        className = "header--image"
+        />
+
+            <h2>Meme Generator</h2>
+            <h4>React Course  - Projecst 3</h4>
         </header>
-     
-        
+       
     )
 }
